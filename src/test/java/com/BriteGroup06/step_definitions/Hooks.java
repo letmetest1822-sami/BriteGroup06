@@ -27,7 +27,7 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshot");
             System.out.println(Driver.get().getTitle() + " page failed ");
         }
-        Driver.closeDriver();
+//        Driver.closeDriver();
     }
 
 }
