@@ -22,6 +22,7 @@ public class EmployeesStepDefs {
         employeesPage.goToEmployeesTab();
         BrowserUtils.waitFor(2);
         System.out.println("Driver.get().getTitle() = " + Driver.get().getTitle());
+
     }
 
 
