@@ -15,64 +15,55 @@ import java.util.List;
 
 public abstract class  BasePage {
 
-    @FindBy(css = "span.title-level-1")
-    public List<WebElement> menuOptions;
 
-    @FindBy(css = "div[class='loader-mask shown']")
+    @FindBy(xpath = "//div[@class='o_loading']" )
     @CacheLookup
-    protected WebElement loaderMask;
+    protected WebElement loading;
 
-    @FindBy(css = "h1[class='oro-subtitle']")
-    public WebElement pageSubTitle;
-
-    @FindBy(css = "#user-menu > a")
+    @FindBy(className = "oe_topbar_name")
     public WebElement userName;
 
-    @FindBy(linkText = "Logout")
+    @FindBy(linkText = "Log out")
     public WebElement logOutLink;
 
-    @FindBy(linkText = "My User")
-    public WebElement myUser;
+    @FindBy(xpath = "(//li[@class='active'])[2]")
+    public WebElement pageSubTitle;
 
 
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
     }
 
-
-    /**
-     * @return page name, for example: Dashboard
-     */
-    public String getPageSubTitle() {
-        //ant time we are verifying page name, or page subtitle, loader mask appears
-        waitUntilLoaderScreenDisappear();
-//        BrowserUtils.waitForStaleElement(pageSubTitle);
-        return pageSubTitle.getText();
-    }
-
-
     /**
      * Waits until loader screen present. If loader screen will not pop up at all,
      * NoSuchElementException will be handled  bu try/catch block
      * Thus, we can continue in any case.
      */
-    public void waitUntilLoaderScreenDisappear() {
+    public void waitUntilLoadingDisappear() {
         try {
             WebDriverWait wait = new WebDriverWait(Driver.get(), 5);
-            wait.until(ExpectedConditions.invisibilityOf(loaderMask));
+            wait.until(ExpectedConditions.invisibilityOf(loading));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public String getUserName(){
-        waitUntilLoaderScreenDisappear();
+        waitUntilLoadingDisappear();
         BrowserUtils.waitForVisibility(userName, 5);
         return userName.getText();
     }
 
 
+    /**
+     * @return page name, works for only Notes, Contacts, Events, Employees Pages
+     */
+    public String getPageSubTitle() {
+        //ant time we are verifying page name, or page subtitle, loader mask appears
+        waitUntilLoadingDisappear();
+//        BrowserUtils.waitForStaleElement(pageSubTitle);
+        return pageSubTitle.getText();
+    }
 
     public void logOut(){
         BrowserUtils.waitFor(2);
@@ -80,10 +71,8 @@ public abstract class  BasePage {
         BrowserUtils.clickWithJS(logOutLink);
     }
     public void goToMyUser(){
-        waitUntilLoaderScreenDisappear();
+        waitUntilLoadingDisappear();
         BrowserUtils.waitForClickablility(userName, 5).click();
-        BrowserUtils.waitForClickablility(myUser, 5).click();
-
     }
 
     /**
@@ -94,6 +83,8 @@ public abstract class  BasePage {
      * @param tab
      * @param module
      */
+
+/*
     public void navigateToModule(String tab, String module) {
         String tabLocator = "//span[normalize-space()='" + tab + "' and contains(@class, 'title title-level-1')]";
         String moduleLocator = "//span[normalize-space()='" + module + "' and contains(@class, 'title title-level-2')]";
@@ -114,5 +105,5 @@ public abstract class  BasePage {
             BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
         }
     }
-
+*/
 }
