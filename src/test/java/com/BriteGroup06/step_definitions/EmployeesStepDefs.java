@@ -19,7 +19,7 @@ public class EmployeesStepDefs {
     @Then("page should have the title {string}")
     public void page_should_have_the_title(String pageTitle) {
         BrowserUtils.waitFor(1);
-        employeesPage.goToEmployeesTab();
+        new EmployeesPage().navigateToModule(pageTitle);
         BrowserUtils.waitFor(2);
         System.out.println("Driver.get().getTitle() = " + Driver.get().getTitle());
 
