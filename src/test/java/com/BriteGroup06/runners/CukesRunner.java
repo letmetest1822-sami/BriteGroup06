@@ -1,8 +1,10 @@
 package com.BriteGroup06.runners;
 
 
+import com.BriteGroup06.pages.LoginPage;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -13,12 +15,11 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "com/BriteGroup06/step_definitions",
         dryRun = false,
-
-        tags = "@contacts"
-
-        tags = "@emp"
-
+        tags = "@navigate"
 
         )
 public class CukesRunner {
+
 }
+
+
