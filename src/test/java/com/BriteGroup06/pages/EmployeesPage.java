@@ -33,8 +33,4 @@ public class EmployeesPage extends BasePage{
 
 
 
-   /* public void goToEmployeesTab() {
-        BrowserUtils.waitFor(5);
-        employeesPageTab2.click();
-    }*/
 }
