@@ -8,6 +8,7 @@ import com.BriteGroup06.utilities.ConfigurationReader;
 import com.BriteGroup06.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 
 public class EmployeesStepDefs {
 
@@ -19,10 +20,16 @@ public class EmployeesStepDefs {
 
     @Then("page should have the title {string}")
     public void page_should_have_the_title(String tab) {
-        BrowserUtils.waitFor(1);
+        BrowserUtils.waitForPageToLoad(10);
         new EmployeesPage().navigateToModule(tab);
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitForPageToLoad(10);
         System.out.println("Driver.get().getTitle() = " + Driver.get().getTitle());
+
+        String expectedResult = Driver.get().getTitle();
+        String actualResult = "Employees - Odoo";
+        Assert.assertEquals("Verify that the page title is correct", expectedResult, actualResult);
+
+
 
     }
 
