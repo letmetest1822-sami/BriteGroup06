@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class  BasePage {
+public abstract class  BasePage {
 
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
@@ -31,15 +31,6 @@ public class  BasePage {
 
     @FindBy(xpath = "(//li[@class='active'])[2]")
     public WebElement pageSubTitle;
-
-    //Navigate to the module based on given moduleName
-    //Call this method from your step definition files
-    public void navigateToModule(String moduleName){
-        String path =  "//span[contains(text(),'" + moduleName + "')]";
-        WebElement module = Driver.get().findElement(By.xpath(path));
-        BrowserUtils.waitForClickablility(module,5);
-        module.click();
-    }
 
     /**
      * Waits until loader screen present. If loader screen will not pop up at all,

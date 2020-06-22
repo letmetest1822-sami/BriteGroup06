@@ -1,5 +1,6 @@
 package com.BriteGroup06.step_definitions;
 
+import com.BriteGroup06.pages.BasePage;
 import com.BriteGroup06.pages.EmployeesPage;
 import com.BriteGroup06.pages.LoginPage;
 import com.BriteGroup06.utilities.BrowserUtils;
@@ -17,9 +18,9 @@ public class EmployeesStepDefs {
     }
 
     @Then("page should have the title {string}")
-    public void page_should_have_the_title(String pageTitle) {
+    public void page_should_have_the_title(String tab) {
         BrowserUtils.waitFor(1);
-        new EmployeesPage().navigateToModule(pageTitle);
+        new EmployeesPage().navigateToModule(tab);
         BrowserUtils.waitFor(2);
         System.out.println("Driver.get().getTitle() = " + Driver.get().getTitle());
 
