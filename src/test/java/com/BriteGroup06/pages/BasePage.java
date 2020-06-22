@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class  BasePage {
@@ -83,14 +84,29 @@ public class  BasePage {
     }
 
     /**
-     * This method will navigate user to the specific module in vytrack application.
-     * For example: if tab is equals to Activities, and module equals to Calls,
-     * Then method will navigate user to this page: http://qa2.vytrack.com/call/
+     * This method will navigate user to the specific module in BriteERP application.
+     * For example: if tab is equals to Contacts,
+     * Then method will navigate user to this page: http://app.briteerp.com/web/login
      *
      * @param tab
-     * @param module
      */
 
+
+
+
+    public void navigateToModule(String tab) {
+        String tabLocator = "//span[contains(text(),'"+ tab +"')]";
+
+        try {
+            BrowserUtils.waitForClickablility(By.xpath(tabLocator), 5);
+            WebElement tabElement = Driver.get().findElement(By.xpath(tabLocator));
+            new Actions(Driver.get()).moveToElement(tabElement).pause(200).doubleClick(tabElement).build().perform();
+
+        } catch (Exception e) {
+            BrowserUtils.clickWithWait(By.xpath(tabLocator), 5);
+        }
+
+    }
 
 
 /*

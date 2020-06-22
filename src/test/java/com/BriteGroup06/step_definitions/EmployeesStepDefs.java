@@ -17,7 +17,7 @@ public class EmployeesStepDefs {
     }
 
     @Then("page should have the title {string}")
-    public void page_should_have_the_title(String string) {
+    public void page_should_have_the_title(String pageTitle) {
         BrowserUtils.waitFor(1);
         employeesPage.goToEmployeesTab();
         BrowserUtils.waitFor(2);

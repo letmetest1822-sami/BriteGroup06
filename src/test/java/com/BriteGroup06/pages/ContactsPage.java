@@ -1,5 +1,5 @@
 package com.BriteGroup06.pages;
 
-public class Contacts {
+public class ContactsPage extends BasePage{
     //code here...good luck
 }
