@@ -47,6 +47,8 @@ public class NavigateToMenuStepDefs {
                 Assert.assertEquals("Subtitle = New", "New", new LunchPage().getPageSubTitle());
                 break;
             case "Maintenance":
+
+                //deneme
                 Assert.assertEquals("Subtitle = Maintenance Teams", "Maintenance Teams", new LunchPage().getPageSubTitle());
                 break;
             case "Dashboards":
