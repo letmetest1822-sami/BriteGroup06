@@ -14,7 +14,6 @@ import org.junit.runner.RunWith;
         glue = "com/BriteGroup06/step_definitions",
         dryRun = false,
         tags = "@wip"
-
         )
-public class CukesRunner {
-}
+
+public class CukesRunner {}

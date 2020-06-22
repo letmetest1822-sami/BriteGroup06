@@ -13,8 +13,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public abstract class  BasePage {
+public class  BasePage {
 
+    public BasePage() {
+        PageFactory.initElements(Driver.get(), this);
+    }
 
     @FindBy(xpath = "//div[@class='o_loading']" )
     @CacheLookup
@@ -29,9 +32,13 @@ public abstract class  BasePage {
     @FindBy(xpath = "(//li[@class='active'])[2]")
     public WebElement pageSubTitle;
 
-
-    public BasePage() {
-        PageFactory.initElements(Driver.get(), this);
+    //Navigate to the module based on given moduleName
+    //Call this method from your step definition files
+    public void navigateToModule(String moduleName){
+        String path =  "//span[contains(text(),'" + moduleName + "')]";
+        WebElement module = Driver.get().findElement(By.xpath(path));
+        BrowserUtils.waitForClickablility(module,5);
+        module.click();
     }
 
     /**
@@ -83,6 +90,8 @@ public abstract class  BasePage {
      * @param tab
      * @param module
      */
+
+
 
 /*
     public void navigateToModule(String tab, String module) {

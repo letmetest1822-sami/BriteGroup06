@@ -1,5 +1,6 @@
 package com.BriteGroup06.pages;
 
+import com.BriteGroup06.utilities.BrowserUtils;
 import com.BriteGroup06.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,14 +25,15 @@ public class LoginPage {
     protected WebElement invalidCredentialsMessage;
 
     public void login(String userNameStr, String passwordStr) {
+        BrowserUtils.waitForClickablility(userName,5);
         userName.sendKeys(userNameStr);
         password.sendKeys(passwordStr);
         loginBtn.click();
-        // verification that we logged
+        //verification that we logged
     }
 
     public boolean isErrorMessageDisplayed() {
-
         return invalidCredentialsMessage.isDisplayed();
     }
+
 }
