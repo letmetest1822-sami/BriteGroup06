@@ -6,8 +6,6 @@ Feature:
     Given the user is logged in with proper credentials
     When the user clicks on "<tab>"
 
-
-
     Examples:
       | tab            | subTitle              |
       | Discuss        | #Inbox                |
