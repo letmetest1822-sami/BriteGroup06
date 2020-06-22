@@ -2,6 +2,8 @@ package com.BriteGroup06.pages;
 
 import com.BriteGroup06.utilities.BrowserUtils;
 import com.BriteGroup06.utilities.Driver;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -31,6 +33,21 @@ public class EmployeesPage extends BasePage{
     @FindBy(xpath = "(//button[@aria-label='Next'])[1]" )
     protected WebElement nextBtn;
 
+    //span[contains(text(),'Antoine Langlais')]
+    //li[contains(text(),'Antoine Langlais')]
 
+
+    public void goToEmployeeDetails(String empName) {
+        String xpathEmpName = "//span[contains(text(),'" + empName + "')]";
+        WebElement empNameButton = Driver.get().findElement(By.xpath(xpathEmpName));
+        BrowserUtils.waitForPageToLoad(10);
+        empNameButton.click();
+    }
+    public Boolean checkEmployeeDetails(String empName) {
+        String xpathEmpTitle = "//li[contains(text(),'" + empName + "')]";
+        System.out.println(Driver.get().findElement(By.xpath(xpathEmpTitle)).isDisplayed());
+        BrowserUtils.waitForPageToLoad(10);
+        return Driver.get().findElement(By.xpath(xpathEmpTitle)).isDisplayed();
+    }
 
 }
