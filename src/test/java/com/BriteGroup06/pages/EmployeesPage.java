@@ -5,7 +5,7 @@ import com.BriteGroup06.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class EmployeesPage {
+public class EmployeesPage extends BasePage{
 
     @FindBy(xpath = "(//a[@class='oe_menu_toggler'])[4]" )
     protected WebElement employeesPageTab;
@@ -33,8 +33,8 @@ public class EmployeesPage {
 
 
 
-    public void goToEmployeesTab() {
+   /* public void goToEmployeesTab() {
         BrowserUtils.waitFor(5);
         employeesPageTab2.click();
-    }
+    }*/
 }

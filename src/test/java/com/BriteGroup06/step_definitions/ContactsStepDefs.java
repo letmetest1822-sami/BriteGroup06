@@ -10,12 +10,11 @@ public class ContactsStepDefs {
 
     @When("the user clicks on {string}")
     public void the_user_clicks_on(String tab) {
+        BrowserUtils.waitFor(2);
         new ContactsPage().navigateToModule(tab);
         BrowserUtils.waitFor(5);
-        String expected = tab;
-        System.out.println("expected = " + expected);
         System.out.println(new ContactsPage().pageSubTitle.getText());
-        Assert.assertTrue("Verify the User navigates to "+ tab +" successfully", expected.equals(new ContactsPage().pageSubTitle.getText()));
+        Assert.assertTrue("Verify the User navigates to "+ tab +" successfully", new ContactsPage().pageSubTitle.getText().contains(tab));
     }
 
 }
