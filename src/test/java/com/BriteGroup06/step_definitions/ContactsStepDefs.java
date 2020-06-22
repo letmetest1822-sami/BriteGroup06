@@ -15,6 +15,8 @@ public class ContactsStepDefs {
         BrowserUtils.waitFor(5);
         System.out.println(new ContactsPage().pageSubTitle.getText());
         Assert.assertTrue("Verify the User navigates to "+ tab +" successfully", new ContactsPage().pageSubTitle.getText().contains(tab));
+
+
     }
 
 }
