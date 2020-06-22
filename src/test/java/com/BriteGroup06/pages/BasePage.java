@@ -22,7 +22,7 @@ public class BasePage {
         PageFactory.initElements(Driver.get(), this);
     }
 
-    @FindBy(xpath = "//div[@class='o_loading']" )
+    @FindBy(xpath = "//div[@class='o_loading']")
     @CacheLookup
     protected WebElement loading;
 
@@ -49,7 +49,7 @@ public class BasePage {
         }
     }
 
-    public String getUserName(){
+    public String getUserName() {
         waitUntilLoadingDisappear();
         BrowserUtils.waitForVisibility(userName, 5);
         return userName.getText();
@@ -66,12 +66,13 @@ public class BasePage {
         return pageSubTitle.getText();
     }
 
-    public void logOut(){
+    public void logOut() {
         BrowserUtils.waitFor(2);
         BrowserUtils.clickWithJS(userName);
         BrowserUtils.clickWithJS(logOutLink);
     }
-    public void goToMyUser(){
+
+    public void goToMyUser() {
         waitUntilLoadingDisappear();
         BrowserUtils.waitForClickablility(userName, 5).click();
     }
@@ -85,11 +86,12 @@ public class BasePage {
      */
 
 
-
-
     public void navigateToModule(String tab) {
 
+
+
         String tabLocator = "//span[contains(text(),'"+ tab +"')]";
+
 
         try {
             BrowserUtils.waitForClickablility(By.xpath(tabLocator), 5);
