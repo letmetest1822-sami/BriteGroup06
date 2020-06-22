@@ -10,11 +10,11 @@ public class ContactsStepDefs {
 
     @When("the user clicks on {string}")
     public void the_user_clicks_on(String tab) {
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(5);
         new ContactsPage().navigateToModule(tab);
         BrowserUtils.waitFor(5);
         System.out.println(new ContactsPage().pageSubTitle.getText());
-        Assert.assertTrue("Verify the User navigates to "+ tab +" successfully", new ContactsPage().pageSubTitle.getText().contains(tab));
+       Assert.assertTrue("Verify the User navigates to "+ tab +" successfully", new ContactsPage().pageSubTitle.getText().contains(tab));
 
     }
     @When("the user creates new contact")
