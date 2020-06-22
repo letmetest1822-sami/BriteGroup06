@@ -85,6 +85,7 @@ public class  BasePage {
 
 
     public void navigateToModule(String tab) {
+
         String tabLocator = "//span[contains(text(),'"+ tab +"')]";
 
         try {
@@ -95,6 +96,7 @@ public class  BasePage {
         } catch (Exception e) {
             BrowserUtils.clickWithWait(By.xpath(tabLocator), 5);
         }
+        BrowserUtils.waitFor(2);
 
     }
 

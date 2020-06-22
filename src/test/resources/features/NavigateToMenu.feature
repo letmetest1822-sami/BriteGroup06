@@ -4,8 +4,8 @@ Feature:
   @navigate
   Scenario Outline: user should navigate to <tab>
     Given the user is logged in with proper credentials
-    When the user click on the {string} tab
-    Then "<tab>" menu subTitle should be "<subTitle>"
+    When the user clicks on "<tab>"
+
 
 
     Examples:

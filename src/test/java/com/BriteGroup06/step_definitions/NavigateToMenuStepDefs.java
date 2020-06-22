@@ -10,15 +10,12 @@ import org.junit.Assert;
 
 public class NavigateToMenuStepDefs {
 
-    @When("the user click on the {string} tab")
-    public void the_user_click_on_the_tab(String tab) {
-        new BasePage().navigateToModule(tab);
 
-    }
     @Then("{string} menu subTitle should be {string}")
     public void menu_subTitle_should_be(String tabName, String expectedTitle) {
         new LunchPage().waitUntilLoadingDisappear();
         BrowserUtils.waitFor(4);
+        System.out.println("new BasePage().getPageSubTitle() = " + new BasePage().getPageSubTitle());
         switch (tabName){
             case "Discuss":
                 Assert.assertEquals("Subtitle = #Inbox",expectedTitle,new LunchPage().getPageSubTitle());
