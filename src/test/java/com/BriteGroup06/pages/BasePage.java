@@ -18,7 +18,6 @@ public class BasePage {
 
 
 
-
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
     }
@@ -88,7 +87,11 @@ public class BasePage {
 
 
     public void navigateToModule(String tab) {
-        String tabLocator = "//span[contains(text(),'" + tab + "')]";
+
+
+
+        String tabLocator = "//span[contains(text(),'"+ tab +"')]";
+
 
         try {
             BrowserUtils.waitForClickablility(By.xpath(tabLocator), 5);
@@ -98,6 +101,7 @@ public class BasePage {
         } catch (Exception e) {
             BrowserUtils.clickWithWait(By.xpath(tabLocator), 5);
         }
+        BrowserUtils.waitFor(2);
 
     }
 }

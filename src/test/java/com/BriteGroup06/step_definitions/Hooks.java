@@ -1,5 +1,6 @@
 package com.BriteGroup06.step_definitions;
 
+import com.BriteGroup06.utilities.BrowserUtils;
 import com.BriteGroup06.utilities.ConfigurationReader;
 import com.BriteGroup06.utilities.Driver;
 import io.cucumber.java.After;
@@ -27,6 +28,7 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshot");
             System.out.println(Driver.get().getTitle() + " page failed ");
         }
+        BrowserUtils.waitFor(2);
         Driver.closeDriver();
     }
 
