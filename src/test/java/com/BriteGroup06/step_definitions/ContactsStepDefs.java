@@ -16,8 +16,12 @@ public class ContactsStepDefs {
         System.out.println(new ContactsPage().pageSubTitle.getText());
         Assert.assertTrue("Verify the User navigates to "+ tab +" successfully", new ContactsPage().pageSubTitle.getText().contains(tab));
 
-
-
     }
+    @When("the user creates new contact")
+    public void the_user_creates_new_contact() {
+        new ContactsPage().createNewContact("Osman Osman","Ataturk Mh 1938 sk no:23","Selanik");
+        Assert.assertTrue("Verify Contact is created", new ContactsPage().contactCreatedMsg.isDisplayed());
+    }
+
 
 }
