@@ -1,56 +1,58 @@
 package com.BriteGroup06.step_definitions;
 
 import com.BriteGroup06.pages.BasePage;
+import com.BriteGroup06.pages.ContactsPage;
 import com.BriteGroup06.pages.LunchPage;
 import com.BriteGroup06.utilities.BrowserUtils;
 import com.BriteGroup06.utilities.Driver;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class NavigateToMenuStepDefs {
 
-
-    @Then("{string} menu subTitle should be {string}")
-    public void menu_subTitle_should_be(String tabName, String expectedTitle) {
+    @When("the user navigates to {string}")
+    public void the_user_navigates_to(String tab) {
+        BrowserUtils.waitFor(2);
+        new ContactsPage().navigateToModule(tab);
+        BrowserUtils.waitFor(5);
         new LunchPage().waitUntilLoadingDisappear();
-        BrowserUtils.waitFor(4);
         System.out.println("new BasePage().getPageSubTitle() = " + new BasePage().getPageSubTitle());
-        switch (tabName){
+        switch (tab) {
             case "Discuss":
-                Assert.assertEquals("Subtitle = #Inbox",expectedTitle,new LunchPage().getPageSubTitle());
+                Assert.assertEquals("Subtitle = #Inbox", "#Inbox", new LunchPage().getPageSubTitle());
                 break;
             case "Calendar":
-                Assert.assertTrue("Subtitle Contains Meeting",new LunchPage().getPageSubTitle().contains(expectedTitle));
+                Assert.assertTrue("Subtitle Contains Meeting", new LunchPage().getPageSubTitle().contains("Meeting"));
                 break;
             case "Notes":
-                Assert.assertEquals("Subtitle = Notes",expectedTitle,new LunchPage().getPageSubTitle());
+                Assert.assertEquals("Subtitle = Notes", "Notes", new LunchPage().getPageSubTitle());
                 break;
             case "Contacts":
-                Assert.assertEquals("Subtitle = Contacts",expectedTitle,new LunchPage().getPageSubTitle());
+                Assert.assertEquals("Subtitle = Contacts", "Contacts", new LunchPage().getPageSubTitle());
                 break;
             case "Events":
-                Assert.assertEquals("Subtitle = Events",expectedTitle,new LunchPage().getPageSubTitle());
+                Assert.assertEquals("Subtitle = Events", "Events", new LunchPage().getPageSubTitle());
                 break;
             case "Employees":
-                Assert.assertEquals("Subtitle = Employees",expectedTitle,new LunchPage().getPageSubTitle());
+                Assert.assertEquals("Subtitle = Employees", "Employees", new LunchPage().getPageSubTitle());
                 break;
             case "Leaves Summary":
-                Assert.assertEquals("Subtitle = Leaves Summary",expectedTitle,new LunchPage().getPageSubTitle());
+                Assert.assertEquals("Subtitle = Leaves Summary", "Leaves Summary", new LunchPage().getPageSubTitle());
                 break;
             case "Expenses":
-                Assert.assertEquals("Subtitle = My Expenses to Submit",expectedTitle,new LunchPage().getPageSubTitle());
+                Assert.assertEquals("Subtitle = My Expenses to Submit", "My Expenses to Submit", new LunchPage().getPageSubTitle());
                 break;
             case "Lunch":
                 Driver.get().switchTo().alert().accept();
-                Assert.assertEquals("Subtitle = New",expectedTitle,new LunchPage().getPageSubTitle());
+                Assert.assertEquals("Subtitle = New", "New", new LunchPage().getPageSubTitle());
                 break;
             case "Maintenance":
-                Assert.assertEquals("Subtitle = Maintenance Teams",expectedTitle,new LunchPage().getPageSubTitle());
+                Assert.assertEquals("Subtitle = Maintenance Teams", "Maintenance Teams", new LunchPage().getPageSubTitle());
                 break;
             case "Dashboards":
-                Assert.assertEquals("Title =  My Dashboard - Odoo",expectedTitle,Driver.get().getTitle());
+                Assert.assertEquals("Title =  My Dashboard - Odoo", "My Dashboard - Odoo", Driver.get().getTitle());
                 break;
+
         }
     }
 
