@@ -12,12 +12,8 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt"},
         features = "src/test/resources/features/",
         glue = "com/BriteGroup06/step_definitions",
-        dryRun = false,
-
-        tags = "@contacts"
-
-        tags = "@emp"
-
+        dryRun =false,
+        tags = "@this"
 
         )
 public class CukesRunner {
