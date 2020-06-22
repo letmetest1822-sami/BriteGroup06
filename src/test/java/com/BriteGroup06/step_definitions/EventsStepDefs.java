@@ -5,6 +5,7 @@ import com.BriteGroup06.pages.EventsPage;
 import com.BriteGroup06.utilities.BrowserUtils;
 import com.BriteGroup06.utilities.Driver;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 
@@ -21,5 +22,6 @@ public class EventsStepDefs {
         String actualResult = "Events - Odoo";
         Assert.assertEquals("Verify that the page title is correct", expectedResult, actualResult);
     }
+
 
 }
