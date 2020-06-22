@@ -15,8 +15,7 @@ import java.util.List;
 
 
 public class BasePage {
-=======
-public class  BasePage {
+
 
 
     public BasePage() {
