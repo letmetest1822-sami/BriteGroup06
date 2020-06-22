@@ -8,6 +8,7 @@ import com.BriteGroup06.utilities.ConfigurationReader;
 import com.BriteGroup06.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class EmployeesStepDefs {
@@ -29,7 +30,24 @@ public class EmployeesStepDefs {
         String actualResult = "Employees - Odoo";
         Assert.assertEquals("Verify that the page title is correct", expectedResult, actualResult);
 
+    }
 
+    @When("user click on {string} name")
+    public void user_click_on_name(String empName) {
+        BrowserUtils.waitFor(5);
+        BrowserUtils.waitForPageToLoad(10);
+
+        employeesPage.goToEmployeeDetails(empName);
+
+        System.out.println("empName = " + empName);
+
+        BrowserUtils.waitForPageToLoad(10);
+    }
+
+    @Then("the details of {string} should be displayed")
+    public void the_details_of_should_be_displayed(String empName2) {
+        BrowserUtils.waitForPageToLoad(10);
+        Assert.assertTrue("Details of the employee is displayed", employeesPage.checkEmployeeDetails(empName2));
 
     }
 
