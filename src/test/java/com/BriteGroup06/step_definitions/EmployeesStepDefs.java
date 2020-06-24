@@ -34,23 +34,23 @@ public class EmployeesStepDefs {
 
 
     @When("the user clicks on {string}")
-    public void the_user_clicks_on(String empName) {
+    public void the_user_clicks_on(String empName3) {
         BrowserUtils.waitFor(5);
         BrowserUtils.waitForPageToLoad(10);
 
-        employeesPage.goToEmployeeDetails(empName);
+        employeesPage.goToEmployeeDetails(empName3);
 
-        System.out.println("empName = " + empName);
+        System.out.println("empName = " + empName3);
 
         BrowserUtils.waitForPageToLoad(10);
     }
 
 
     @Then("the details of {string} should be displayed")
-    public void the_details_of_should_be_displayed(String empName) {
+    public void the_details_of_should_be_displayed(String empName4) {
         BrowserUtils.waitForPageToLoad(10);
-        Assert.assertTrue("Details of the employee is displayed", employeesPage.checkEmployeeDetails(empName));
-        System.out.println("empName = " + empName);
+        Assert.assertTrue("Details of the employee is displayed", employeesPage.checkEmployeeDetails(empName4));
+        System.out.println("empName = " + empName4);
 
     }
 
