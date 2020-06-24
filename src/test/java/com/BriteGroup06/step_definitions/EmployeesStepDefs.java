@@ -27,7 +27,7 @@ public class EmployeesStepDefs {
         System.out.println("Driver.get().getTitle() = " + Driver.get().getTitle());
 
         String expectedResult = Driver.get().getTitle();
-        String actualResult = "Employees - Odoo";
+        String actualResult = tab+" - Odoo";
         Assert.assertEquals("Verify that the page title is correct", expectedResult, actualResult);
 
     }
