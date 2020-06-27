@@ -16,13 +16,9 @@ import org.junit.runner.RunWith;
         glue = "com/BriteGroup06/step_definitions",
 
         dryRun =false,
-        tags = "@leave"
-
-
-
+        tags = "@events"
         )
-public class CukesRunner {
 
-}
+public class CukesRunner { }
 
 
