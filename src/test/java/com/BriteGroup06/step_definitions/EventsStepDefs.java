@@ -1,5 +1,6 @@
 package com.BriteGroup06.step_definitions;
 
+import com.BriteGroup06.pages.EventsPage;
 import com.BriteGroup06.pages.InsideEventPage;
 import com.BriteGroup06.utilities.BrowserUtils;
 import com.BriteGroup06.utilities.Driver;
@@ -47,7 +48,8 @@ public class EventsStepDefs {
     }
 
     public int randomEvent() {
-        int eventNumber = random.nextInt(42)+1;
+        EventsPage eventsPage = new EventsPage();
+        int eventNumber = random.nextInt(Integer.parseInt(eventsPage.pageLimit.getText()))+1;
         System.out.println(eventNumber);
         return eventNumber;
     }
