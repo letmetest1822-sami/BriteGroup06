@@ -48,6 +48,11 @@ public class EmployeesPage extends BasePage{
         System.out.println(Driver.get().findElement(By.xpath(xpathEmpTitle)).isDisplayed());
         BrowserUtils.waitForPageToLoad(10);
         return Driver.get().findElement(By.xpath(xpathEmpTitle)).isDisplayed();
+
     }
+
+
+
+
 
 }
