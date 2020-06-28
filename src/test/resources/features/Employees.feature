@@ -9,7 +9,7 @@ Feature: User should be able to view and manage employee records
     Then page should have the title "Employees"
 
   Scenario Outline: User should be able to click on "<employee>" to see details.
-    When user click on "<employee>" name
+    When the user clicks on "<employee>"
     Then the details of "<employee>" should be displayed
     Examples:
       | employee         |

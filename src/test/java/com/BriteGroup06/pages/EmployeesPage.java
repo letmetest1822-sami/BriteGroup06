@@ -44,7 +44,7 @@ public class EmployeesPage extends BasePage{
         empNameButton.click();
     }
     public Boolean checkEmployeeDetails(String empName) {
-        String xpathEmpTitle = "//li[contains(text(),'" + empName + "')]";
+        String xpathEmpTitle = "//span[contains(text(),'" + empName + "')]";
         System.out.println(Driver.get().findElement(By.xpath(xpathEmpTitle)).isDisplayed());
         BrowserUtils.waitForPageToLoad(10);
         return Driver.get().findElement(By.xpath(xpathEmpTitle)).isDisplayed();
