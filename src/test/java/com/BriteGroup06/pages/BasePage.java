@@ -99,7 +99,6 @@ public class BasePage {
         } catch (Exception e) {
             BrowserUtils.clickWithWait(By.xpath(tabLocator), 5);
         }
-        BrowserUtils.waitFor(2);
 
     }
 }

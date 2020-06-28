@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt"},
         features = "src/test/resources/features/",
         glue = "com/BriteGroup06/step_definitions",
+        lunch_yusuf_celik
         dryRun = false,
         tags = "@lunch"
 
@@ -21,5 +22,3 @@ import org.junit.runner.RunWith;
 public class CukesRunner {
 
 }
-
-

@@ -12,11 +12,12 @@ public class NavigateToMenuStepDefs {
 
     @When("the user navigates to {string}")
     public void the_user_navigates_to(String tab) {
+
         BrowserUtils.waitFor(2);
         new ContactsPage().navigateToModule(tab);
         BrowserUtils.waitFor(5);
         new LunchPage().waitUntilLoadingDisappear();
-        System.out.println("new BasePage().getPageSubTitle() = " + new BasePage().getPageSubTitle());
+
         switch (tab) {
             case "Discuss":
                 Assert.assertEquals("Subtitle = #Inbox", "#Inbox", new LunchPage().getPageSubTitle());
@@ -56,8 +57,7 @@ public class NavigateToMenuStepDefs {
                 break;
 
         }
+        System.out.println("You were on the " + tab + " page");
     }
-    //deneme2
-
 
 }
