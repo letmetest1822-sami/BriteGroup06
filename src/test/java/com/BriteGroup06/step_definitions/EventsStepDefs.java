@@ -31,7 +31,7 @@ public class EventsStepDefs {
         BrowserUtils.waitForClickablility(event,10);
         expectedDate = getExpectedDate(eventNumber);
         event.click();
-        System.out.println("You clicked on an event in the event page");
+        System.out.println("You clicked on an event in the event page.");
 
     }
 
