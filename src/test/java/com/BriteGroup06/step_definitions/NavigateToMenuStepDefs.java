@@ -49,7 +49,7 @@ public class NavigateToMenuStepDefs {
                 break;
             case "Maintenance":
 
-                //deneme
+                //for conflict
                 Assert.assertEquals("Subtitle = Maintenance Teams", "Maintenance Teams", new LunchPage().getPageSubTitle());
                 break;
             case "Dashboards":
