@@ -26,7 +26,7 @@ public class EmployeesStepDefs {
         BrowserUtils.waitForPageToLoad(10);
         System.out.println("Driver.get().getTitle() = " + Driver.get().getTitle());
 
-        String expectedResult = tab + " - Odoo";
+        String expectedResult = tab + " - Odoohhh";
         String actualResult = Driver.get().getTitle();
         Assert.assertEquals("Verify that the page title is correct", expectedResult, actualResult);
 
