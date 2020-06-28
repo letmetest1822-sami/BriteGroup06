@@ -23,6 +23,4 @@ public class ContactsStepDefs {
         Assert.assertTrue("Verify Contact is created", new ContactsPage().contactCreatedMsg.isDisplayed());
     }
 
-
-
 }
