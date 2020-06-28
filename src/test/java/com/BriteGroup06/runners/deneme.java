@@ -12,6 +12,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class deneme {
+
+    public static void main(String[] args) {
+
+    }
     @Test
     public void test() throws InterruptedException {
         WebDriver driver = Driver.get();
