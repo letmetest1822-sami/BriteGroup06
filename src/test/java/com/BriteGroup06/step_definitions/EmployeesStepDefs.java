@@ -26,21 +26,21 @@ public class EmployeesStepDefs {
         BrowserUtils.waitForPageToLoad(10);
         System.out.println("Driver.get().getTitle() = " + Driver.get().getTitle());
 
-        String expectedResult = Driver.get().getTitle();
-        String actualResult = tab+" - Odoo";
+        String expectedResult = tab + " - Odoohhh";
+        String actualResult = Driver.get().getTitle();
         Assert.assertEquals("Verify that the page title is correct", expectedResult, actualResult);
-
 
     }
 
-    @When("user click on {string} name")
-    public void user_click_on_name(String empName) {
+
+    @When("the user clicks on {string}")
+    public void the_user_clicks_on(String empName3) {
         BrowserUtils.waitFor(5);
         BrowserUtils.waitForPageToLoad(10);
 
-        employeesPage.goToEmployeeDetails(empName);
+        employeesPage.goToEmployeeDetails(empName3);
 
-        System.out.println("empName = " + empName);
+        System.out.println("empName = " + empName3);
 
         BrowserUtils.waitForPageToLoad(10);
     }

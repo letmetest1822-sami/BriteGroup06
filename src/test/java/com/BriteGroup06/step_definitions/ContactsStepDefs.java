@@ -22,4 +22,5 @@ public class ContactsStepDefs {
         new ContactsPage().createNewContact("Osman Osman","Ataturk Mh 1938 sk no:23","Selanik");
         Assert.assertTrue("Verify Contact is created", new ContactsPage().contactCreatedMsg.isDisplayed());
     }
+
 }
