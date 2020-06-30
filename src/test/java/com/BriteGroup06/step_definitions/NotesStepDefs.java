@@ -44,15 +44,34 @@ public class NotesStepDefs  {
 
 
     @And("the user clicks on {string} button")
-    public void theUserClicksOnButton(String save) {
-        notesPage.saveBtn.click();
+    public void theUserClicksOnButton(String buttonStr) {
+
+        switch (buttonStr){
+            case "Save":
+                notesPage.saveBtn.click();
+                break;
+            case "Import":
+                notesPage.importBtn.click();
+                break;
+        }
     }
 
-    @Then("the user views {string} button")
-    public void theUserViewsButton(String edit) {
+    @Then("the user should view {string} button")
+    public void theUserShouldViewButton(String buttonStr) {
         BrowserUtils.waitFor(1);
+        switch (buttonStr){
+            case "edit":
+                Assert.assertTrue(buttonStr+" button is NOT Seen",notesPage.editBtn.isDisplayed());
+                break;
+            case "Import":
+                Assert.assertTrue(buttonStr+" button is NOT Seen",notesPage.importBtn.isDisplayed());
+                break;
+        }
+    }
 
-        Assert.assertTrue(edit+" button is NOT Seen",notesPage.editBtn.isDisplayed());
-
+    @When("the user choose a file to upload")
+    public void theUserChooseAFileToUpload() {
+        String filePath = "C:/_files_/excel.xlsx";
+        notesPage.fileToImport.sendKeys(filePath);
     }
 }

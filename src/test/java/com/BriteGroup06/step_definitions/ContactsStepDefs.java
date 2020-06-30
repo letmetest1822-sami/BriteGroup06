@@ -8,8 +8,8 @@ import org.junit.Assert;
 
 public class ContactsStepDefs {
 
-    @When("the user clicks on {string}")
-    public void the_user_clicks_on(String tab) {
+    @When("the user clicks on {string} aaa")
+    public void the_user_clicks_on_aaa(String tab) {
         BrowserUtils.waitFor(5);
         new ContactsPage().navigateToModule(tab);
         BrowserUtils.waitFor(5);
